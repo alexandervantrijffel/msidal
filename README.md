@@ -12,7 +12,7 @@ go get github.com/alexandervantrijffel/msidal
 
 #### Usage
 
-Example calling code for verifying an JWT bearer token. This verifies the audience, signature and expiration validity of the token.
+Example calling code for verifying an MSAL based JWT bearer token. This verifies the audience, signature and expiration validity of the token.
 
 ```
 import (
