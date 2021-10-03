@@ -7,10 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strings"
-	"sync"
-	"time"
 
-	"github.com/Azure/go-autorest/autorest"
 	oidc "github.com/coreos/go-oidc"
 	cleanhttp "github.com/hashicorp/go-cleanhttp"
 	"golang.org/x/oauth2"
@@ -31,15 +28,10 @@ type AzureSettings struct {
 	ActiveDirectoryEndpoint string
 }
 
-var authorizerLifetime = 30 * time.Minute
-
 type azureProvider struct {
-	oidcVerifier         *oidc.IDTokenVerifier
-	settings             *AzureSettings
-	httpClient           *http.Client
-	authorizer           autorest.Authorizer
-	authorizerExpiration time.Time
-	lock                 sync.RWMutex
+	oidcVerifier *oidc.IDTokenVerifier
+	settings     *AzureSettings
+	httpClient   *http.Client
 }
 
 type oidcDiscoveryInfo struct {
